@@ -1,0 +1,14 @@
+<footer>
+  <nav>
+    <ul class="inline-navigation-list">
+      <% metadata.links.each do |link| %>
+        <li>
+          <a href="<%= link.url %>" target="_blank" rel="noopener"><%= link.name %></a>
+        </li>
+      <% end %>
+      <li>
+        <a href="mailto:<%= metadata.email %>">Email</a>
+      </li>
+    </ul>
+  </nav>
+</footer>

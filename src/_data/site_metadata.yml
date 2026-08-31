@@ -1,0 +1,14 @@
+# Reloadable site metadata, available in templates as `site.metadata`.
+title: Edward Tippett
+tagline: Software Developer
+description: >-
+  Edward Tippett is a software developer.
+email: edward.tippett@gmail.com
+
+# Rendered as the footer navigation, in order. Email is appended separately
+# so it can be linked as a mailto: without opening a new tab.
+links:
+  - name: GitHub
+    url: https://github.com/cattekin
+  - name: Twitter
+    url: https://twitter.com/cattekin

@@ -1,0 +1,21 @@
+<%# Bridgetown titles a resource after its filename, so `index` arrives as
+    "Index". Treat that as untitled and let the site metadata speak instead. %>
+<% page_title = data.title.to_s == "Index" ? nil : data.title %>
+<!doctype html>
+<html lang="<%= site.locale %>">
+  <head>
+    <%= render "head", metadata: site.metadata, title: page_title %>
+  </head>
+
+  <body class="<%= data.page_class || data.layout %>">
+    <%= render "site_header",
+               heading: page_title || site.metadata.title,
+               subheading: data.subtitle || site.metadata.tagline %>
+
+    <%# The splash design fills the viewport with the header and footer halves,
+        so pages normally speak through their front matter and leave this empty. %>
+    <main><%= yield %></main>
+
+    <%= render "site_footer", metadata: site.metadata %>
+  </body>
+</html>
