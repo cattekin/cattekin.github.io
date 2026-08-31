@@ -3,7 +3,7 @@
     <ul class="inline-navigation-list">
       <% metadata.links.each do |link| %>
         <li>
-          <a href="<%= link.url %>" target="_blank" rel="noopener"><%= link.name %></a>
+          <a href="<%= link.url %>" target="_blank" rel="<%= [link[:rel], "noopener"].compact.join(" ") %>"><%= link.name %></a>
         </li>
       <% end %>
       <li>

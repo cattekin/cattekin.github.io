@@ -6,9 +6,12 @@ description: >-
 email: edward.tippett@gmail.com
 
 # Rendered as the footer navigation, in order. Email is appended separately
-# so it can be linked as a mailto: without opening a new tab.
+# so it can be linked as a mailto: without opening a new tab. An optional
+# `rel` is appended to the link's own rel attribute — Mastodon needs rel="me"
+# on the link back to verify the profile.
 links:
   - name: GitHub
     url: https://github.com/cattekin
   - name: Mastodon
     url: https://mastodon.social/@cattekin
+    rel: me
