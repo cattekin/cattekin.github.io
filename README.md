@@ -30,7 +30,7 @@ treatment as the home page without any extra CSS.
 
 ## Deploying
 
-Pushing to `master` triggers `.github/workflows/deploy.yml`, which runs
+Pushing to `main` triggers `.github/workflows/deploy.yml`, which runs
 `bin/bridgetown deploy` and publishes `output/` to GitHub Pages. This requires
 the repository's **Settings → Pages → Build and deployment → Source** to be set
 to **GitHub Actions**.
