@@ -18,8 +18,8 @@ html {
   box-sizing: border-box;
   color: $color-text;
   font-size: 16px;
-  height: 100%;
   line-height: 1.6;
+  min-height: 100%;
   text-align: center;
 
   @media (max-width: $bp-medium) {
@@ -27,36 +27,63 @@ html {
   }
 }
 
+// A column split down the middle: the name sits just above the midline, the
+// links just below it. `dvh` measures the viewport as it actually is on a
+// phone; against `vh` the footer hides behind the browser's own chrome.
 body {
+  display: flex;
+  flex-direction: column;
   font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-weight: 400;
-  height: 100%;
+  min-height: 100vh;
+  min-height: 100dvh;
+}
+
+header {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 0 1em 1em;
+}
+
+footer {
+  flex: 1;
+  padding: 1em 1em 0;
 }
 
 a {
-  border-bottom: 2px solid transparent;
+  border-bottom: 2px solid rgba($color-text, 0.3);
   color: $color-text;
   text-decoration: none;
-  transition: border 100ms ease-in;
+  transition: border-color 100ms ease-in;
+}
 
-  &:hover {
-    border-bottom: 2px solid $color-text;
+// Nothing but the underline distinguishes these links from the text around
+// them, so on touch — where there is no hover to reveal it — it stays put.
+@media (hover: hover) {
+  a {
+    border-bottom-color: transparent;
+  }
+
+  a:hover {
+    border-bottom-color: $color-text;
   }
 }
 
+a:focus-visible {
+  border-bottom-color: $color-text;
+  outline: 2px solid $color-text;
+  outline-offset: 4px;
+}
+
+// Scales continuously rather than in three jumps, which keeps the name on one
+// line down to the narrowest phones and removes the lurch at the breakpoints.
 h1 {
-  font-size: 5em;
+  font-size: clamp(2.5rem, 12vw, 5rem);
   font-weight: normal;
   margin: 0;
   width: 100%;
-
-  @media (max-width: $bp-medium) {
-    font-size: 4em;
-  }
-
-  @media (max-width: $bp-small) {
-    font-size: 3em;
-  }
 }
 
 h2 {
@@ -73,27 +100,8 @@ p {
   margin: 0.5em 0 0 0;
 }
 
-// The header and footer each claim half the viewport, pinning the name just
-// above the midline and the links just below it.
-header {
-  height: 50%;
-  position: relative;
-}
-
 .title {
-  bottom: 1em;
-  padding: 0 1em;
-  position: absolute;
   width: 100%;
-}
-
-footer {
-  bottom: 0;
-  height: 50%;
-  left: 0;
-  padding: 1em 1em 0 1em;
-  position: absolute;
-  right: 0;
 }
 
 .inline-navigation-list {
@@ -108,6 +116,18 @@ footer {
     @media (max-width: $bp-small) {
       margin: 0 0.7em;
     }
+  }
+
+  a {
+    position: relative;
+  }
+
+  // Grows the touch target to roughly 44px square without moving the
+  // underline or changing the spacing between links.
+  a::after {
+    content: "";
+    inset: -0.9em -0.4em;
+    position: absolute;
   }
 }
 
