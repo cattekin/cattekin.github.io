@@ -5,6 +5,10 @@ description: >-
   Edward Tippett is a software developer.
 email: edward.tippett@gmail.com
 
+# Link preview image, 1200x630. Regenerate after editing the source with:
+#   rsvg-convert -w 1200 -h 630 design/og.svg -o src/images/og.png
+image: /images/og.png
+
 # Rendered as the footer navigation, in order. Email is appended separately
 # so it can be linked as a mailto: without opening a new tab. An optional
 # `rel` is appended to the link's own rel attribute — Mastodon needs rel="me"

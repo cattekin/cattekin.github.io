@@ -4,7 +4,7 @@
 <!doctype html>
 <html lang="<%= site.locale %>">
   <head>
-    <%= render "head", metadata: site.metadata, title: page_title %>
+    <%= render "head", metadata: site.metadata, title: page_title, resource: resource %>
   </head>
 
   <body class="<%= data.page_class || data.layout %>">

@@ -2,10 +2,23 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
 <% resource_title = strip_html(strip_newlines(title.to_s)) %>
-<title><% if resource_title.empty? %><%= metadata.title %><% else %><%= resource_title %> | <%= metadata.title %><% end %></title>
+<% full_title = resource_title.empty? ? metadata.title : "#{resource_title} | #{metadata.title}" %>
+<title><%= full_title %></title>
 
 <meta name="description" content="<%= metadata.description %>" />
 <meta name="author" content="<%= metadata.title %>" />
+<link rel="canonical" href="<%= resource.absolute_url %>" />
+
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="<%= metadata.title %>" />
+<meta property="og:title" content="<%= full_title %>" />
+<meta property="og:description" content="<%= metadata.description %>" />
+<meta property="og:url" content="<%= resource.absolute_url %>" />
+<meta property="og:image" content="<%= absolute_url(metadata.image) %>" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="<%= metadata.title %> — <%= metadata.tagline %>" />
+<meta name="twitter:card" content="summary_large_image" />
 
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />

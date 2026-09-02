@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#666666"/>
+      <stop offset="50%" stop-color="#cbcbc7"/>
+      <stop offset="100%" stop-color="#e3e3e2"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#g)"/>
+  <text x="600" y="330" text-anchor="middle" fill="#333333"
+        font-family="Helvetica Neue, Helvetica, Arial, sans-serif"
+        font-weight="400" font-size="112">Edward Tippett</text>
+  <text x="600" y="400" text-anchor="middle" fill="#333333"
+        font-family="Helvetica Neue, Helvetica, Arial, sans-serif"
+        font-weight="400" font-size="38">Software Developer</text>
+</svg>
