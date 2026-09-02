@@ -7,7 +7,11 @@
 
 <meta name="description" content="<%= metadata.description %>" />
 <meta name="author" content="<%= metadata.title %>" />
+<% if resource.data.noindex %>
+<meta name="robots" content="noindex" />
+<% else %>
 <link rel="canonical" href="<%= resource.absolute_url %>" />
+<% end %>
 
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="<%= metadata.title %>" />
