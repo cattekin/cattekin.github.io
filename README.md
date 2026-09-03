@@ -30,10 +30,16 @@ treatment as the home page without any extra CSS.
 
 ## Deploying
 
-Pushing to `main` triggers `.github/workflows/deploy.yml`, which runs
-`bin/bridgetown deploy` and publishes `output/` to GitHub Pages. This requires
-the repository's **Settings → Pages → Build and deployment → Source** to be set
-to **GitHub Actions**.
+`.github/workflows/deploy.yml` runs `bin/bridgetown deploy` on every pull
+request and on every push to `main`; only the pushes to `main` go on to
+publish `output/` to GitHub Pages. So a pull request that fails to build says
+so before it lands, and is worth requiring under **Settings → Branches**.
+
+Publishing requires the repository's **Settings → Pages → Build and deployment
+→ Source** to be set to **GitHub Actions**.
+
+Dependabot (`.github/dependabot.yml`) proposes gem, npm, and action updates
+once a month, one grouped pull request each, which the same build then checks.
 
 To reproduce the production build locally:
 

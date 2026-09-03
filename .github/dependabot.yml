@@ -1,0 +1,30 @@
+# Dependabot opens the update PRs; the workflow in `deploy.yml` builds every
+# pull request, so a bump that breaks the site is caught before it can merge.
+#
+# One grouped PR per ecosystem per month — this site has few dependencies and
+# no reason to hear about them weekly.
+version: 2
+updates:
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: monthly
+    groups:
+      actions:
+        patterns: ["*"]
+
+  - package-ecosystem: npm
+    directory: /
+    schedule:
+      interval: monthly
+    groups:
+      frontend:
+        patterns: ["*"]
+
+  - package-ecosystem: bundler
+    directory: /
+    schedule:
+      interval: monthly
+    groups:
+      gems:
+        patterns: ["*"]
