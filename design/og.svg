@@ -7,6 +7,15 @@
     </linearGradient>
   </defs>
   <rect width="1200" height="630" fill="url(#g)"/>
+  <!--
+    Deliberately pinned, and deliberately NOT the site's font stack. The site
+    renders in the viewer's own OS UI font, which a static image cannot mirror,
+    and rsvg-convert resolves "system-ui" through fontconfig, which matches it
+    to Verdana here and to something else on the next machine. Helvetica Neue
+    is named outright so the render is deterministic. It is still in the site's
+    stack, and is a close neighbour of the faces most viewers actually see:
+    San Francisco on Apple, Roboto on Android.
+  -->
   <text x="600" y="330" text-anchor="middle" fill="#333333"
         font-family="Helvetica Neue, Helvetica, Arial, sans-serif"
         font-weight="400" font-size="112">Edward Tippett</text>

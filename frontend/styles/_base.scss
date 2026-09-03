@@ -41,7 +41,8 @@ html {
 body {
   display: flex;
   flex-direction: column;
-  font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto,
+               "Helvetica Neue", Arial, sans-serif;
   font-weight: 400;
   min-height: 100vh;
   min-height: 100dvh;
