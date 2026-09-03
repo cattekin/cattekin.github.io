@@ -1,0 +1,6 @@
+// Compile-time configuration only — this file emits no CSS. Breakpoints have
+// to stay Sass variables because media queries cannot read custom properties.
+// The colours live in `_base.scss` as custom properties instead, so they can
+// be reassigned at runtime (a dark variant, a per-page-class theme).
+$bp-medium: 600px;
+$bp-small: 450px;

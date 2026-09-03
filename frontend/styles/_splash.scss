@@ -1,0 +1,49 @@
+@use "tokens" as *;
+
+// A column split down the middle: the title block claims the space above the
+// midline and bottoms out against it, the footer claims the space below.
+// Centring lives here rather than on `html` so a prose page is not dragged
+// into it.
+.splash {
+  text-align: center;
+
+  main {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 0 1em 1em;
+  }
+
+  footer {
+    flex: 1;
+    padding: 1em 1em 0;
+  }
+
+  .title {
+    width: 100%;
+  }
+
+  // Scales continuously rather than in three jumps, which keeps the name on
+  // one line down to the narrowest phones and removes the lurch at the
+  // breakpoints.
+  h1 {
+    font-size: clamp(2.5rem, 12vw, 5rem);
+    font-weight: normal;
+    margin: 0;
+    width: 100%;
+  }
+
+  // Sized explicitly because this was an <h2> borrowing the browser's default
+  // 1.5em. It is a subtitle, not a section heading, so the element changed but
+  // the appearance should not.
+  .tagline {
+    font-size: 1.5em;
+    margin: 0.5em 0;
+    width: 100%;
+
+    @media (max-width: $bp-small) {
+      font-size: 1.2em;
+    }
+  }
+}

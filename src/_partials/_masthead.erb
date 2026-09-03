@@ -1,0 +1,17 @@
+<%# `Array(...)` so this works before `nav` has any entries — or none at all. %>
+<header class="masthead">
+  <a class="masthead-name" href="/"><%= metadata.title %></a>
+
+  <% nav = Array(metadata.nav) %>
+  <% if nav.any? %>
+    <nav>
+      <ul class="inline-navigation-list">
+        <% nav.each do |item| %>
+          <li>
+            <a href="<%= item.url %>"<%= ' aria-current="page"'.html_safe if resource.relative_url == item.url %>><%= item.name %></a>
+          </li>
+        <% end %>
+      </ul>
+    </nav>
+  <% end %>
+</header>

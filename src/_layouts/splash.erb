@@ -1,0 +1,15 @@
+---
+layout: default
+---
+<%# The full-viewport treatment: the name sits just above the midline, the
+    links just below it. The title block is the whole content of such a page,
+    so it *is* the <main> — there is no separate header to put it in. %>
+<main>
+  <div class="title">
+    <h1><%= resource.data.title.to_s.empty? ? site.metadata.title : resource.data.title %></h1>
+
+    <p class="tagline">
+      <span class="no-break"><%= resource.data.subtitle || site.metadata.tagline %></span>
+    </p>
+  </div>
+</main>

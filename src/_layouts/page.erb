@@ -1,0 +1,12 @@
+---
+layout: default
+---
+<%# An ordinary page: the site name shrinks to a masthead link home and the
+    page's own title becomes the h1, so there is only ever one per document. %>
+<%= render "masthead", metadata: site.metadata, resource: resource %>
+
+<main class="prose">
+  <h1><%= resource.data.title %></h1>
+
+  <%= yield %>
+</main>

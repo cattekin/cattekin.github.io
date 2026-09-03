@@ -1,20 +1,19 @@
-<%# Bridgetown titles a resource after its filename, so `index` arrives as
-    "Index". Treat that as untitled and let the site metadata speak instead. %>
-<% page_title = data.title.to_s == "Index" ? nil : data.title %>
+<%# The shell, and nothing else: everything here is true of every page.
+    The footer stays because it never varies; the header does not, because a
+    splash page and a prose page need different ones. Child layouts supply it. %>
 <!doctype html>
 <html lang="<%= site.locale %>">
   <head>
-    <%= render "head", metadata: site.metadata, title: page_title, resource: resource %>
+    <%= render "head", metadata: site.metadata, title: resource.data.title, resource: resource %>
   </head>
 
-  <body class="<%= data.page_class || data.layout %>">
-    <%= render "site_header",
-               heading: page_title || site.metadata.title,
-               subheading: data.subtitle || site.metadata.tagline %>
-
-    <%# The splash design fills the viewport with the header and footer halves,
-        so pages normally speak through their front matter and leave this empty. %>
-    <main><%= yield %></main>
+  <%# Both classes, not one or the other: the layout name carries the geometry
+      and `page_class` is a per-page modifier on top of it, so `404.html` is
+      `splash not-found` rather than losing the splash treatment entirely.
+      `resource.data` rather than a bare `data` — once layouts chain, `data`
+      alone no longer says whose front matter you mean. %>
+  <body class="<%= [resource.data.layout, resource.data.page_class].compact.join(" ") %>">
+    <%= yield %>
 
     <%= render "site_footer", metadata: site.metadata %>
   </body>

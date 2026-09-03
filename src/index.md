@@ -1,4 +1,4 @@
 ---
-layout: default
-page_class: index
+layout: splash
+title: ""
 ---
