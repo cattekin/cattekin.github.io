@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512">
+  <!--
+    Source for the favicon and the Apple touch icon. Regenerate both after
+    editing:
+
+      rsvg-convert -w 16  -h 16  design/favicon.svg -o /tmp/icon-16.png
+      rsvg-convert -w 32  -h 32  design/favicon.svg -o /tmp/icon-32.png
+      rsvg-convert -w 48  -h 48  design/favicon.svg -o /tmp/icon-48.png
+      magick /tmp/icon-16.png /tmp/icon-32.png /tmp/icon-48.png src/favicon.ico
+      rsvg-convert -w 180 -h 180 design/favicon.svg -o src/images/apple-touch-icon.png
+
+    Rendered to raster rather than linked as an SVG favicon for the same
+    reason `og.svg` pins its font: the letterforms here are live text, and a
+    browser asked to render them resolves the family on the viewer's machine.
+    Rasterising once, here, makes the icon the same everywhere.
+  -->
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#cbcbc7"/>
+      <stop offset="100%" stop-color="#e3e3e2"/>
+    </linearGradient>
+  </defs>
+
+  <!--
+    The lower half of the site's gradient, not the whole of it. Against the
+    full range the `#666` top end sits at 2.2:1 behind `#333` text, which at
+    16px eats the crossbars of both letters.
+  -->
+  <rect width="512" height="512" fill="url(#g)"/>
+
+  <!--
+    Heavier than the site, which sets `font-weight: normal` throughout. That
+    is a deliberate optical compensation, not a drift: at 16px the normal
+    weight thins to about a pixel and the monogram greys out.
+  -->
+  <text x="256" y="256" text-anchor="middle" dominant-baseline="central" fill="#333333"
+        font-family="Helvetica Neue, Helvetica, Arial, sans-serif"
+        font-weight="600" font-size="360" letter-spacing="-6">ET</text>
+</svg>

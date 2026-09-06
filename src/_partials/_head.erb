@@ -13,6 +13,13 @@
 <link rel="canonical" href="<%= resource.absolute_url %>" />
 <% end %>
 
+<%# `favicon.ico` is at the site root because that is where a browser looks
+    for it unprompted; the link tag only saves it the guess. Both are raster
+    renders of `design/favicon.svg` — see that file for why it is not linked
+    as an SVG icon directly. %>
+<link rel="icon" href="/favicon.ico" sizes="16x16 32x32 48x48" />
+<link rel="apple-touch-icon" href="/images/apple-touch-icon.png" />
+
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="<%= metadata.title %>" />
 <meta property="og:title" content="<%= full_title %>" />

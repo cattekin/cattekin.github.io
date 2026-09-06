@@ -28,6 +28,9 @@ layout, not editing the shell.
 | `src/index.md` | The home page — front matter only; the design comes from the layout |
 | `src/404.html` | The splash layout again, plus `page_class: not-found` |
 | `src/CNAME` | Custom domain, copied verbatim into the build |
+| `src/favicon.ico` | Favicon, at the root because that is where browsers look |
+| `src/images/` | `og.png` link preview, `apple-touch-icon.png` |
+| `design/` | `og.svg` and `favicon.svg` — the sources those renders come from |
 | `frontend/styles/` | `index.scss` imports the partials below |
 
 The `<body>` carries both the layout name and any `page_class`, so `404.html`
