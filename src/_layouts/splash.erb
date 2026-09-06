@@ -12,4 +12,13 @@ layout: default
       <span class="no-break"><%= resource.data.subtitle || site.metadata.tagline %></span>
     </p>
   </div>
+
+  <%# A splash page is usually just the title block, so the wrapper is only
+      emitted when the page actually supplied a body — otherwise its margin
+      would push the title block off the midline on the home page, which
+      supplies none. %>
+  <% body = yield %>
+  <% unless body.to_s.strip.empty? %>
+    <div class="splash-body"><%= body %></div>
+  <% end %>
 </main>

@@ -46,4 +46,22 @@
       font-size: 1.2em;
     }
   }
+
+  // Optional content under the title block — the 404's way back, so far.
+  .splash-body {
+    margin-top: 2em;
+    width: 100%;
+
+    p {
+      margin: 0;
+    }
+
+    // Keeps its underline on hover-capable devices, where a link otherwise
+    // shows none until pointed at. That is fine for the footer, which reads
+    // as a row of links from its shape alone; a lone word under the tagline
+    // would just look like more tagline.
+    a {
+      border-bottom-color: var(--color-text);
+    }
+  }
 }
