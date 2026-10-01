@@ -142,7 +142,7 @@ export function mountHeightmap() {
   const random = mulberry32(Math.floor(Math.random() * 2 ** 32))
   const noise = perlin(random)
   const offset = [random() * 256, random() * 256]
-  const ramp = readRamp()
+  let ramp = readRamp()
 
   const canvas = document.createElement("canvas")
   canvas.className = "heightmap"
@@ -155,5 +155,11 @@ export function mountHeightmap() {
   window.addEventListener("resize", () => {
     cancelAnimationFrame(pending)
     pending = requestAnimationFrame(() => draw(canvas, noise, offset, ramp))
+  })
+
+  // Same landscape, recoloured from the new theme's ramp.
+  document.addEventListener("themechange", () => {
+    ramp = readRamp()
+    draw(canvas, noise, offset, ramp)
   })
 }

@@ -9,6 +9,30 @@
   --gradient-top: #666;
   --gradient-middle: #cbcbc7;
   --gradient-bottom: #e3e3e2;
+  color-scheme: light;
+}
+
+// Dark follows the system unless `theme.js` has pinned a choice on the root,
+// so the default needs no JavaScript and the override is just an attribute.
+// The two blocks have to stay identical — a mixin keeps them that way.
+@mixin dark-tokens {
+  --color-text: #d8d8d6;
+  --color-selection: #666;
+  --color-rule: rgba(216, 216, 214, 0.3);
+  --gradient-top: #0e0e0e;
+  --gradient-middle: #262625;
+  --gradient-bottom: #323231;
+  color-scheme: dark;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    @include dark-tokens;
+  }
+}
+
+:root[data-theme="dark"] {
+  @include dark-tokens;
 }
 
 * {
@@ -67,7 +91,8 @@ a {
   }
 }
 
-a:focus-visible {
+a:focus-visible,
+.theme-toggle:focus-visible {
   border-bottom-color: var(--color-text);
   outline: 2px solid var(--color-text);
   outline-offset: 4px;
@@ -98,6 +123,41 @@ a:focus-visible {
     content: "";
     inset: -0.9em -0.4em;
     position: absolute;
+  }
+}
+
+// A quiet viewport utility, independent of the centered navigation.
+.theme-toggle {
+  position: fixed;
+  right: max(24px, env(safe-area-inset-right));
+  bottom: max(24px, env(safe-area-inset-bottom));
+  z-index: 1;
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  background: none;
+  border: 0;
+  border-radius: 50%;
+  color: var(--color-text);
+  cursor: pointer;
+  padding: 0;
+
+  &[hidden] {
+    display: none;
+  }
+
+  &:hover {
+    background: var(--color-rule);
+  }
+
+  .theme-icon {
+    display: none;
+  }
+
+  &[data-next-theme="dark"] .theme-icon-moon,
+  &[data-next-theme="light"] .theme-icon-sun {
+    display: block;
   }
 }
 
