@@ -1,8 +1,8 @@
 # Reloadable site metadata, available in templates as `site.metadata`.
 title: Edward Tippett
-tagline: Software Developer
+tagline: Some kind of maker
 description: >-
-  Edward Tippett is a software developer.
+  Immanentizing the Eschaton
 email: edward.tippett@gmail.com
 
 # Link preview image, 1200x630. Regenerate after editing the source with:
