@@ -1,9 +1,7 @@
 @use "tokens" as *;
 
-// A column split down the middle: the title block claims the space above the
-// midline and bottoms out against it, the footer claims the space below.
-// Centring lives here rather than on `html` so a prose page is not dragged
-// into it.
+// Center the introduction in the available space, with a separate, quiet
+// footer below. Keep enough room beneath the links for the corner toggle.
 .splash {
   text-align: center;
 
@@ -11,13 +9,18 @@
     display: flex;
     flex: 1;
     flex-direction: column;
-    justify-content: flex-end;
-    padding: 0 1em 1em;
+    justify-content: center;
+    padding: clamp(3rem, 8vh, 6rem) 1em;
   }
 
   footer {
-    flex: 1;
-    padding: 1em 1em 0;
+    flex: none;
+    padding: 1.5rem 1em max(96px, calc(env(safe-area-inset-bottom) + 72px));
+    font-size: 0.9rem;
+
+    .inline-navigation-list {
+      margin: 0;
+    }
   }
 
   .title {
@@ -30,6 +33,7 @@
   h1 {
     font-size: clamp(2.5rem, 12vw, 5rem);
     font-weight: normal;
+    line-height: 1.15;
     margin: 0;
     width: 100%;
   }
@@ -39,7 +43,7 @@
   // the appearance should not.
   .tagline {
     font-size: 1.5em;
-    margin: 0.5em 0;
+    margin: 0.65rem 0 0;
     width: 100%;
 
     @media (max-width: $bp-small) {
