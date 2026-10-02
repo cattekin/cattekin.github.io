@@ -71,7 +71,11 @@ function perlin(random) {
 }
 
 function parseHex(value) {
-  let hex = value.trim().replace(/^#/, "")
+  const colour = value.trim()
+  // An unavailable custom property must not become NaN and then black via
+  // the bitwise operations below. Keep the CSS background until it is ready.
+  if (!/^#(?:[\da-f]{3}|[\da-f]{6})$/i.test(colour)) return null
+  let hex = colour.slice(1)
   if (hex.length === 3) hex = [...hex].map(c => c + c).join("")
   const n = parseInt(hex, 16)
   return [(n >> 16) & 255, (n >> 8) & 255, n & 255]
@@ -80,8 +84,9 @@ function parseHex(value) {
 // The same three stops the CSS gradient uses, evenly spaced as it spaces them.
 function readRamp() {
   const style = getComputedStyle(document.documentElement)
-  return ["--gradient-top", "--gradient-middle", "--gradient-bottom"]
+  const ramp = ["--gradient-top", "--gradient-middle", "--gradient-bottom"]
     .map(name => parseHex(style.getPropertyValue(name)))
+  return ramp.every(Boolean) ? ramp : null
 }
 
 function sampleRamp(ramp, t) {
@@ -142,24 +147,31 @@ export function mountHeightmap() {
   const random = mulberry32(Math.floor(Math.random() * 2 ** 32))
   const noise = perlin(random)
   const offset = [random() * 256, random() * 256]
-  let ramp = readRamp()
 
   const canvas = document.createElement("canvas")
   canvas.className = "heightmap"
   canvas.setAttribute("aria-hidden", "true")
   document.body.prepend(canvas)
 
-  draw(canvas, noise, offset, ramp)
+  function redraw() {
+    const ramp = readRamp()
+    canvas.style.display = ramp ? "" : "none"
+    if (ramp) draw(canvas, noise, offset, ramp)
+  }
+
+  redraw()
+  // Cold loads can initially lack the CSS palette. Retry once resources
+  // finish loading; never retain an invalid palette across redraws.
+  if (document.readyState !== "complete") {
+    window.addEventListener("load", redraw, { once: true })
+  }
 
   let pending
   window.addEventListener("resize", () => {
     cancelAnimationFrame(pending)
-    pending = requestAnimationFrame(() => draw(canvas, noise, offset, ramp))
+    pending = requestAnimationFrame(redraw)
   })
 
   // Same landscape, recoloured from the new theme's ramp.
-  document.addEventListener("themechange", () => {
-    ramp = readRamp()
-    draw(canvas, noise, offset, ramp)
-  })
+  document.addEventListener("themechange", redraw)
 }
