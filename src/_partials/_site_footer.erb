@@ -1,14 +1,18 @@
-<footer>
-  <nav>
+<footer class="site-footer">
+  <% if resource.data.layout == "splash" %>
+    <% Array(metadata.nav).each do |item| %>
+      <a class="footer-page-link" href="<%= item.url %>"><%= item.name %></a>
+    <% end %>
+  <% end %>
+  <a class="footer-page-link" href="mailto:<%= metadata.email %>">Contact</a>
+  <nav class="footer-menu" aria-label="Socials">
+    <button class="footer-menu-trigger" type="button">Socials</button>
     <ul class="inline-navigation-list">
       <% metadata.links.each do |link| %>
         <li>
           <a href="<%= link.url %>" target="_blank" rel="<%= [link[:rel], "noopener"].compact.join(" ") %>"><%= link.name %></a>
         </li>
       <% end %>
-      <li>
-        <a href="mailto:<%= metadata.email %>">Email</a>
-      </li>
     </ul>
   </nav>
 </footer>

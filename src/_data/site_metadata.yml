@@ -19,8 +19,7 @@ nav:
   - name: Hire me
     url: /hire-me/
 
-# Rendered as the footer navigation, in order. Email is appended separately
-# so it can be linked as a mailto: without opening a new tab. An optional
+# Rendered as the footer's Socials menu, in order. An optional
 # `rel` is appended to the link's own rel attribute — Mastodon needs rel="me"
 # on the link back to verify the profile.
 links:
@@ -29,3 +28,7 @@ links:
   - name: Mastodon
     url: https://mastodon.social/@cattekin
     rel: me
+  - name: Bluesky
+    url: https://bsky.app/profile/cattekin.bsky.social
+  - name: LinkedIn
+    url: https://www.linkedin.com/in/cattekin

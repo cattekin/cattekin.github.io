@@ -126,6 +126,95 @@ a:focus-visible,
   }
 }
 
+.site-footer {
+  align-items: flex-start;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5em 3em;
+  justify-content: center;
+
+  .footer-page-link {
+    border-bottom: 0;
+    min-height: 44px;
+    padding: 0.5em;
+    text-decoration: underline;
+    text-decoration-color: transparent;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0.3em;
+    transition: text-decoration-color 180ms ease;
+
+    &:hover,
+    &:focus-visible {
+      text-decoration-color: var(--color-rule);
+    }
+  }
+
+  .footer-menu {
+    position: relative;
+  }
+
+  .footer-menu-trigger {
+    background: none;
+    border: 0;
+    color: inherit;
+    cursor: pointer;
+    font: inherit;
+    font-weight: 500;
+    min-height: 44px;
+    padding: 0.5em;
+  }
+
+  .footer-menu-trigger:focus-visible {
+    outline: 2px solid var(--color-text);
+    outline-offset: 4px;
+  }
+
+  .inline-navigation-list {
+    background: var(--gradient-bottom);
+    border: 1px solid var(--color-rule);
+    border-radius: 0.5em;
+    bottom: 100%;
+    left: 50%;
+    margin: 0;
+    min-width: 9em;
+    padding: 0.5em;
+    position: absolute;
+    transform: translateX(-50%);
+    visibility: hidden;
+    z-index: 2;
+
+    li {
+      display: block;
+      margin: 0;
+    }
+
+    a {
+      border-bottom: 0;
+      display: block;
+      padding: 0.5em;
+      text-decoration: underline;
+      text-decoration-color: transparent;
+      text-decoration-thickness: 1px;
+      text-underline-offset: 0.3em;
+      transition: text-decoration-color 180ms ease;
+    }
+
+    a:hover,
+    a:focus-visible {
+      text-decoration-color: var(--color-rule);
+    }
+
+    a::after {
+      content: none;
+    }
+  }
+
+  .footer-menu:hover .inline-navigation-list,
+  .footer-menu:focus-within .inline-navigation-list {
+    visibility: visible;
+  }
+}
+
 // A quiet viewport utility, independent of the centered navigation.
 .theme-toggle {
   position: fixed;

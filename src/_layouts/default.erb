@@ -1,5 +1,5 @@
 <%# The shell, and nothing else: everything here is true of every page.
-    The footer stays because it never varies; the header does not, because a
+    The footer is shared; the header is not, because a
     splash page and a prose page need different ones. Child layouts supply it. %>
 <!doctype html>
 <html lang="<%= site.locale %>">
@@ -15,6 +15,6 @@
   <body class="<%= [resource.data.layout, resource.data.page_class].compact.join(" ") %>">
     <%= yield %>
 
-    <%= render "site_footer", metadata: site.metadata %>
+    <%= render "site_footer", metadata: site.metadata, resource: resource %>
   </body>
 </html>
