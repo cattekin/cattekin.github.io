@@ -16,6 +16,8 @@ image: /images/og.png
 nav:
   - name: About
     url: /about/
+  - name: Hire me
+    url: /hire-me/
 
 # Rendered as the footer navigation, in order. Email is appended separately
 # so it can be linked as a mailto: without opening a new tab. An optional
