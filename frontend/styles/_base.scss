@@ -133,8 +133,14 @@ a:focus-visible,
   gap: 1.5em 3em;
   justify-content: center;
 
+  @media (max-width: $bp-small) {
+    column-gap: 0.5em;
+  }
+
   .footer-page-link {
+    align-items: center;
     border-bottom: 0;
+    display: inline-flex;
     min-height: 44px;
     padding: 0.5em;
     text-decoration: underline;
@@ -154,10 +160,12 @@ a:focus-visible,
   }
 
   .footer-menu-trigger {
+    align-items: center;
     background: none;
     border: 0;
     color: inherit;
     cursor: pointer;
+    display: inline-flex;
     font: inherit;
     font-weight: 500;
     min-height: 44px;
