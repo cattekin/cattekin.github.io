@@ -12,8 +12,10 @@ image: /images/og.png
 # Internal pages, rendered as the masthead navigation on the `page` layout.
 # Separate from `links` below because these are same-site (no new tab, and
 # the current page is marked with aria-current). The splash pages have no
-# masthead, so this stays empty until there is somewhere to go.
-nav: []
+# masthead.
+nav:
+  - name: About
+    url: /about/
 
 # Rendered as the footer navigation, in order. Email is appended separately
 # so it can be linked as a mailto: without opening a new tab. An optional
