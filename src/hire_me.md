@@ -21,6 +21,9 @@ I'm interested in:
 My recent experience is Ruby on Rails, mostly in fintech and marketplaces.
 I'm also happy to explore Elixir, Rust, etc if the mission is right.
 
+I've been using AI tools to explore code, work through problems and build software.
+I'm also interested in teams building with AI, especially where it can solve problems for the people using the product.
+
 About me: I'm a software engineer with over 15 years' experience helping startups succeed.
 I'm especially good at untangling complex problems and streamlining processes.
 
