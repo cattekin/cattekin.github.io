@@ -7,7 +7,7 @@ permalink: /hire-me/
 I'm thinking about what's next, and I'd like to meet some good people along the way.
 If you're building something interesting, I'd love to hear about it.
 
-If you are (or know) a staff engineer, team lead or hiring manager at a place you think I might be interested in, get in touch.
+If that sounds like your team—or a team you know—I'd love to hear from you.
 You can [email me](mailto:edward.tippett@gmail.com) or [connect on LinkedIn](https://www.linkedin.com/in/cattekin).
 Happy to share my current résumé.
 
@@ -15,11 +15,11 @@ I'm interested in:
 
 - Early to mid-stage startups.
 - Backend-focused work, but I can do full stack.
-- Web apps, APIs, performance optimisation, data pipelines and related areas. These are my comfort zone, but I'm open to others.
+- Web apps, APIs, performance optimisation and data pipelines.
 - Working remotely within Australian and Asian time zones at present.
 
 My recent experience is Ruby on Rails, mostly in fintech and marketplaces.
-I'm also happy to explore Elixir, Rust, etc if the mission is right.
+I'm open to other stacks, including Elixir and Rust, if the mission is right.
 
 I've been using AI tools to explore code, work through problems and build software.
 I'm also interested in teams building with AI, especially where it can solve problems for the people using the product.
