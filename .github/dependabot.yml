@@ -17,6 +17,8 @@ updates:
     directory: /
     schedule:
       interval: monthly
+    allow:
+      - dependency-type: all
     groups:
       frontend:
         patterns: ["*"]
@@ -25,6 +27,8 @@ updates:
     directory: /
     schedule:
       interval: monthly
+    allow:
+      - dependency-type: all
     groups:
       gems:
         patterns: ["*"]
